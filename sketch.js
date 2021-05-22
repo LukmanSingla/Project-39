@@ -48,6 +48,7 @@ function setup(){
   invisible_ground.visible=false;
   
 
+
   obstacleGroup=new Group();
   cloudGroup= new Group();
   // console.warn("This is an warning");
@@ -118,7 +119,7 @@ function draw(){
   }
     
   text(mouseX+","+mouseY,mouseX, mouseY);
-  text("HI " + Math.floor(highScore) + "  "+Math.floor(score),530,60);
+  text("HI " + Math.floor(highScore) + "  "+Math.floor(score),530,camera.position.y-80);
   trex.collide(invisible_ground);
   drawSprites();
 }
@@ -132,7 +133,7 @@ function spawnCloud(){
   cloud.addImage("cloud",cloud_load);
   cloud.velocityX=-2;
   cloud.scale=0.5;
-  cloud.y=Math.round(random(30,100));
+  cloud.y=camera.position.y-Math.round(random(30,80));
   // console.log(cloud.x);
   cloud.depth=trex.depth;
   trex.depth++;
